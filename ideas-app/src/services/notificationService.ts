@@ -1,4 +1,5 @@
 import * as Notifications from 'expo-notifications';
+import { SchedulableTriggerInputTypes } from 'expo-notifications';
 import { Platform } from 'react-native';
 import { Alert, Idea } from '../types';
 import { updateIdea, getIdeaById } from './storageService';
@@ -44,6 +45,7 @@ export async function scheduleAlert(
         data: { ideaId: idea.id, alertId: alert.id },
       },
       trigger: {
+        type: SchedulableTriggerInputTypes.DATE,
         date: scheduledDate,
       },
     });
